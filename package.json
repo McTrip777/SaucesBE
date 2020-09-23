@@ -1,0 +1,26 @@
+{
+  "name": "preacherbbq",
+  "version": "1.0.0",
+  "description": "BBQ sauce sold with Stripe",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McTrip777/SaucesBE.git"
+  },
+  "author": "Jacob McFaul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/McTrip777/SaucesBE/issues"
+  },
+  "homepage": "https://github.com/McTrip777/SaucesBE#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "stripe": "^8.97.0",
+    "uuid": "^8.3.0"
+  }
+}
