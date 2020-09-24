@@ -15,11 +15,10 @@ app.use(cors());
 
 app.post("/checkout", async (req, res) => {
     console.log("Request:", req.body);
-
     let error;
     let status;
     try {
-        const { product, token } = req.body;
+        const { token } = req.body;
 
         const customer = await stripe.customers.create({
             email: token.email,
@@ -29,11 +28,11 @@ app.post("/checkout", async (req, res) => {
         const idempotency_key = uuidv4();
         const charge = await stripe.charges.create(
             {
-                amount: product.price,
+                amount: req.body.price,
                 currency: "usd",
                 customer: customer.id,
                 receipt_email: token.email,
-                description: `Purchased the ${product.name}`,
+                description: `Purchased the ${req.body.name}`,
                 shipping: {
                     name: token.card.name,
                     address: {
